@@ -49,13 +49,7 @@ kubectl get pods
 # nginx   1/1     Running   0          13m
 ```
 
-### Delete Cluster and VMs
-```
-# If you want to destroy the Virtual Machines built for this cluster use:
-vagrant destroy -f
-```
-
-### System Resources
+### Cluster Resource usages:
 ```
 Before VMs build:
 CPU: 9% (4 Core, 3.2 GHz)
@@ -91,9 +85,38 @@ mkdir -p $HOME/bin/ && cd $HOME/bin/ && curl -L --remote-name-all https://storag
 kubectl version
 ```
 
-### For WSL1
+### Ability to ssh into VMs
 ```
-# In powershell
+# In \local-kubernetes-cluster directory run:
+PS D:\repos\local-kubernetes-cluster> vagrant ssh master
+vagrant@master:~$ sudo -s
+root@master:~# systemctl status docker | grep "Active:"
+   Active: active (running) since Sun 2020-08-23 18:58:59 UTC; 1h 0min ago
+
+# Same for worker1 and worker2
+PS D:\repos\local-kubernetes-cluster> vagrant ssh worker1
+PS D:\repos\local-kubernetes-cluster> vagrant ssh worker2
+```
+
+### Suspend and Resume VMs
+```
+# Suspend Vms
+# In \local-kubernetes-cluster directory run:
+PS D:\repos\local-kubernetes-cluster> vagrant suspend
+
+# Resume Vms
+PS D:\repos\local-kubernetes-cluster> vagrant resume
+```
+
+### Delete Cluster and VMs
+```
+# If you want to destroy the Virtual Machines built for this cluster use:
+vagrant destroy -f
+```
+
+### WSL1 Support
+```
+# If you have WSL1 already activated and created run these in powershell
 # My WSL path for example: c:\Users\jturi\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs
 # Copy config to WSL \home\jturi\.kube\config
 PS D:\repos\local-kubernetes-cluster> cp config c:\Users\jturi\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\home\jturi\.kube\config
