@@ -23,7 +23,7 @@ cp config ~/.kube/config
 
 ### Use Cluster
 ```
-# Try kubectl commands
+# Try kubectl commands:
 alias k='kubectl '
 k get nodes
 k get nodes -o wide
@@ -33,14 +33,14 @@ k get ns
 
 ## Delete Cluster
 ```
-# If you want to destroy images
+# If you want to destroy the Virtual Machines built for this cluster use:
 vagrant destroy -f
 ```
 
 ## System Resources
 ```
 Before VMs build:
-CPU: 9% (4 Core)
+CPU: 9% (4 Core, 3.2 GHz)
 MEM: 5.2GB (16GB)
 
 After VMs build:
