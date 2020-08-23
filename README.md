@@ -29,18 +29,26 @@ vagrant up
 # Copy .kube/config file from master
 scp root@172.42.42.100:/home/vagrant/.kube/config config
 Password: kubeadmin
-mv ~/.kube/config ~/.kube/config.backup
 cp config ~/.kube/config
 
 # Try kubectl commands Unix:
-alias k='kubectl '
-k get nodes
-k get nodes -o wide
-k get po
-k get ns
+kubectl get nodes
+
+# NAME      STATUS   ROLES    AGE   VERSION
+# master    Ready    master   23m   v1.18.8
+# worker1   Ready    <none>   22m   v1.18.8
+# worker2   Ready    <none>   20m   v1.18.8
+
+kubectl run nginx --image=nginx --dry-run=client -o yaml
+kubectl run nginx --image=nginx --dry-run=client -o yaml > nginx.yaml
+kubectl apply -f nginx.yaml
+kubectl get pods
+
+# NAME    READY   STATUS    RESTARTS   AGE
+# nginx   1/1     Running   0          13m
 ```
 
-### Delete Cluster
+### Delete Cluster and VMs
 ```
 # If you want to destroy the Virtual Machines built for this cluster use:
 vagrant destroy -f
@@ -59,6 +67,15 @@ MEM: 9.4GB (16GB)
 
 ### Installing kubectl
 ```
+### Windows ###
+# Open Powershell as Administrator
+# Install Chocolatey: https://chocolatey.org/
+# Once installed run:
+choco install kubernetes-cli -y
+# Try kubectl
+kubectl version
+kubectl get nodes
+
 ### Unix ###
 ## Add this to your ~/.bashrc or ~/.bash_aliases file:
 export PATH=~/bin:$PATH
@@ -71,4 +88,19 @@ mkdir -p $HOME/bin/ && cd $HOME/bin/ && curl -L --remote-name-all https://storag
 
 ## Check version
 kubectl version
+```
+
+### For WSL1
+```
+# In powershell
+# My WSL path for example: c:\Users\jturi\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs
+# Copy config to WSL \home\jturi\.kube\config
+PS D:\repos\local-kubernetes-cluster> cp config c:\Users\jturi\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\home\jturi\.kube\config
+# In WSL1:
+kubectl get nodes
+
+# NAME      STATUS   ROLES    AGE   VERSION
+# master    Ready    master   23m   v1.18.8
+# worker1   Ready    <none>   22m   v1.18.8
+# worker2   Ready    <none>   20m   v1.18.8
 ```
