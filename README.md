@@ -1,6 +1,11 @@
+### Local Kubernetes Cluster
+If you want to have a Kubernetes cluster to prepare for your CKA/CKAD exam and practice. If you do not want to use cloud services to build a cluster this Vagrantfile will build it for you on your local machine.
+
 ### Prerequisites
+- Memory: 12 or 16 GB
+- CPU 4 ore more physical cores
 - Install Vagrant > 2.2.9
-- Install Virtualbox >6.1
+- Install VirtualBox > 6.1
 
 ### Troubleshooting
 ```
@@ -31,13 +36,13 @@ k get po
 k get ns
 ```
 
-## Delete Cluster
+### Delete Cluster
 ```
 # If you want to destroy the Virtual Machines built for this cluster use:
 vagrant destroy -f
 ```
 
-## System Resources
+### System Resources
 ```
 Before VMs build:
 CPU: 9% (4 Core, 3.2 GHz)
