@@ -1,5 +1,5 @@
-### Local Kubernetes Cluster
-If you want to have a Kubernetes cluster to prepare for your CKA/CKAD exam and practice. If you do not want to use cloud services to build a cluster this Vagrantfile will build it for you on your local machine.
+### Create a Local Kubernetes Cluster
+If you want to have a Kubernetes cluster to practice for your CKA/CKAD | If you want to build a Kubernetes cluster on your own | If you don't want to use minikube or Docker for Windows | Then his Vagrantfile will build a cluster on your local machine
 
 ### Prerequisites
 - Memory: 12 or 16 GB
@@ -10,8 +10,11 @@ If you want to have a Kubernetes cluster to prepare for your CKA/CKAD exam and p
 
 ### Troubleshooting
 ```
-# If you get Hash Sum mismatch run cmd as administrator and execute:
-# -Disable Windows Hyper-v
+# If you get Hash Sum mismatch during apt install:
+# Disable Hyper-V on your machine
+# On Windows search for "Turn Windows Features"
+# Untick Hyper-V option
+# [ ] Hyper-V
 ```
 
 ### Build Cluster
