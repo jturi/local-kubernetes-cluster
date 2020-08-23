@@ -2,11 +2,12 @@
 If you want to have a Kubernetes cluster to practice for your CKA/CKAD | If you want to build a Kubernetes cluster on your own | If you don't want to use minikube or Docker for Windows | Then his Vagrantfile will build a cluster on your local machine
 
 ### Prerequisites
-- Memory: 12 or 16 GB
-- CPU 4 ore more physical cores
+- MEM: 12 or 16 GB
+- CPU: 4 ore more physical cores
 - Install Vagrant > 2.2.9
 - Install VirtualBox > 6.1
 - Install kubectl > 1.18
+- Install git
 
 ### Troubleshooting
 ```
