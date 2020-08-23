@@ -114,7 +114,7 @@ PS D:\repos\local-kubernetes-cluster> vagrant resume
 vagrant destroy -f
 ```
 
-### WSL1 Support
+### WSL1 Support for kubectl
 ```
 # If you have WSL1 already activated and created run these in powershell
 # My WSL path for example: c:\Users\jturi\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs
@@ -127,4 +127,34 @@ kubectl get nodes
 # master    Ready    master   23m   v1.18.8
 # worker1   Ready    <none>   22m   v1.18.8
 # worker2   Ready    <none>   20m   v1.18.8
+```
+
+### WSL1 Support for Vagrant
+```
+alias vagrant='vagrant.exe '
+
+$ vagrant status
+Current machine states:
+
+master                    running (virtualbox)
+worker1                   running (virtualbox)
+worker2                   running (virtualbox)
+
+$ vagrant ssh master
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 4.4.0-187-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+
+0 packages can be updated.
+0 updates are security updates.
+
+New release '18.04.5 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Sun Aug 23 21:40:44 2020 from 10.0.2.2
+vagrant@master:~$
 ```
