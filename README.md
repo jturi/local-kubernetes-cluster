@@ -19,6 +19,7 @@ If you want to have a Kubernetes cluster to practice for your CKA/CKAD | If you 
 ```
 
 ### Build Cluster
+![](img/cluster-build.gif)
 ```
 # Navigate to local-kubernetes-cluster folder
 # Build and configure VMs
@@ -61,6 +62,7 @@ MEM: 9.4GB (16GB)
 ```
 
 ### Installing kubectl
+![](img/kubectl-choco.gif)
 ```
 ### Windows ###
 # Open Powershell as Administrator
@@ -70,7 +72,9 @@ choco install kubernetes-cli -y
 # Try kubectl
 kubectl version
 kubectl get nodes
+```
 
+```
 ### Unix ###
 ## Add this to your ~/.bashrc or ~/.bash_aliases file:
 export PATH=~/bin:$PATH
